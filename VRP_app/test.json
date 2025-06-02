@@ -1,0 +1,841 @@
+{
+    "nodes": [
+        {
+            "lat": 59.770763956105284,
+            "lng": 30.71764469146729,
+            "cargo": 0,
+            "isDepot": true
+        },
+        {
+            "lat": 59.77036722653997,
+            "lng": 30.794677734375004,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 1",
+            "clientId": 1
+        },
+        {
+            "lat": 59.782646372998535,
+            "lng": 30.624046325683594,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 2",
+            "clientId": 2
+        },
+        {
+            "lat": 59.807191117012565,
+            "lng": 30.570144653320316,
+            "cargo": 130,
+            "isDepot": false,
+            "clientName": "Клиент 3",
+            "clientId": 3
+        },
+        {
+            "lat": 59.74718060230316,
+            "lng": 30.591344833374027,
+            "cargo": 260,
+            "isDepot": false,
+            "clientName": "Клиент 4",
+            "clientId": 4
+        },
+        {
+            "lat": 59.74410797769384,
+            "lng": 30.56302070617676,
+            "cargo": 410,
+            "isDepot": false,
+            "clientName": "Клиент 5",
+            "clientId": 5
+        },
+        {
+            "lat": 59.74289616073826,
+            "lng": 30.614862442016605,
+            "cargo": 450,
+            "isDepot": false,
+            "clientName": "Клиент 6",
+            "clientId": 6
+        },
+        {
+            "lat": 59.67665223043256,
+            "lng": 30.676746368408207,
+            "cargo": 540,
+            "isDepot": false,
+            "clientName": "Клиент 7",
+            "clientId": 7
+        },
+        {
+            "lat": 59.64135018353948,
+            "lng": 30.766181945800785,
+            "cargo": 510,
+            "isDepot": false,
+            "clientName": "Клиент 8",
+            "clientId": 8
+        },
+        {
+            "lat": 59.70422714172679,
+            "lng": 30.786437988281254,
+            "cargo": 420,
+            "isDepot": false,
+            "clientName": "Клиент 9",
+            "clientId": 9
+        },
+        {
+            "lat": 59.718000942914394,
+            "lng": 30.77476501464844,
+            "cargo": 420,
+            "isDepot": false,
+            "clientName": "Клиент 10",
+            "clientId": 10
+        },
+        {
+            "lat": 59.540170971032936,
+            "lng": 30.875015258789066,
+            "cargo": 210,
+            "isDepot": false,
+            "clientName": "Клиент 11",
+            "clientId": 11
+        },
+        {
+            "lat": 59.56976169643647,
+            "lng": 30.54473876953125,
+            "cargo": 145,
+            "isDepot": false,
+            "clientName": "Клиент 12",
+            "clientId": 12
+        },
+        {
+            "lat": 59.61531533054465,
+            "lng": 30.382690429687504,
+            "cargo": 130,
+            "isDepot": false,
+            "clientName": "Клиент 13",
+            "clientId": 13
+        },
+        {
+            "lat": 59.41185312107613,
+            "lng": 30.33531188964844,
+            "cargo": 150,
+            "isDepot": false,
+            "clientName": "Клиент 14",
+            "clientId": 14
+        },
+        {
+            "lat": 59.34606366241288,
+            "lng": 30.055847167968754,
+            "cargo": 190,
+            "isDepot": false,
+            "clientName": "Клиент 15",
+            "clientId": 15
+        },
+        {
+            "lat": 59.36231718554898,
+            "lng": 31.247005462646488,
+            "cargo": 210,
+            "isDepot": false,
+            "clientName": "Клиент 16",
+            "clientId": 16
+        },
+        {
+            "lat": 59.34166633308549,
+            "lng": 31.24116897583008,
+            "cargo": 130,
+            "isDepot": false,
+            "clientName": "Клиент 17",
+            "clientId": 17
+        },
+        {
+            "lat": 59.4472470557582,
+            "lng": 32.01004028320313,
+            "cargo": 210,
+            "isDepot": false,
+            "clientName": "Клиент 18",
+            "clientId": 18
+        },
+        {
+            "lat": 59.44096016684927,
+            "lng": 32.03613281250001,
+            "cargo": 240,
+            "isDepot": false,
+            "clientName": "Клиент 19",
+            "clientId": 19
+        },
+        {
+            "lat": 59.72987906403691,
+            "lng": 30.075759887695316,
+            "cargo": 175,
+            "isDepot": false,
+            "clientName": "Клиент 20",
+            "clientId": 20
+        },
+        {
+            "lat": 59.737711251831826,
+            "lng": 30.087347030639652,
+            "cargo": 201,
+            "isDepot": false,
+            "clientName": "Клиент 21",
+            "clientId": 21
+        },
+        {
+            "lat": 59.69789165223552,
+            "lng": 30.120005607604984,
+            "cargo": 115,
+            "isDepot": false,
+            "clientName": "Клиент 22",
+            "clientId": 22
+        },
+        {
+            "lat": 59.69444666426561,
+            "lng": 30.114512443542484,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 23",
+            "clientId": 23
+        },
+        {
+            "lat": 59.70137961227058,
+            "lng": 30.0921106338501,
+            "cargo": 144,
+            "isDepot": false,
+            "clientName": "Клиент 24",
+            "clientId": 24
+        },
+        {
+            "lat": 59.67168276510435,
+            "lng": 30.131206512451175,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 25",
+            "clientId": 25
+        },
+        {
+            "lat": 59.659695058792366,
+            "lng": 30.10683059692383,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 26",
+            "clientId": 26
+        },
+        {
+            "lat": 59.66405450290697,
+            "lng": 30.088033676147464,
+            "cargo": 140,
+            "isDepot": false,
+            "clientName": "Клиент 27",
+            "clientId": 27
+        },
+        {
+            "lat": 59.659608297933886,
+            "lng": 30.09537220001221,
+            "cargo": 170,
+            "isDepot": false,
+            "clientName": "Клиент 28",
+            "clientId": 28
+        },
+        {
+            "lat": 59.90718885269779,
+            "lng": 29.77603912353516,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 29",
+            "clientId": 29
+        },
+        {
+            "lat": 59.903140983321215,
+            "lng": 29.77775573730469,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 30",
+            "clientId": 30
+        },
+        {
+            "lat": 59.900470841960086,
+            "lng": 29.708919525146488,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 31",
+            "clientId": 31
+        },
+        {
+            "lat": 59.90494966679038,
+            "lng": 29.7015380859375,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 32",
+            "clientId": 32
+        },
+        {
+            "lat": 59.897800485914374,
+            "lng": 29.695444107055668,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 33",
+            "clientId": 33
+        },
+        {
+            "lat": 59.890477440477405,
+            "lng": 29.68531608581543,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 34",
+            "clientId": 34
+        },
+        {
+            "lat": 59.90133220133917,
+            "lng": 29.720163345336918,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 35",
+            "clientId": 35
+        },
+        {
+            "lat": 59.89560296963838,
+            "lng": 29.77174758911133,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 36",
+            "clientId": 36
+        },
+        {
+            "lat": 59.89814452924346,
+            "lng": 29.820413589477543,
+            "cargo": 140,
+            "isDepot": false,
+            "clientName": "Клиент 37",
+            "clientId": 37
+        },
+        {
+            "lat": 59.89706772318806,
+            "lng": 29.83122825622559,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 38",
+            "clientId": 38
+        },
+        {
+            "lat": 59.88522453506139,
+            "lng": 29.846763610839847,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 39",
+            "clientId": 39
+        },
+        {
+            "lat": 59.85431697266279,
+            "lng": 29.921007156372074,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 40",
+            "clientId": 40
+        },
+        {
+            "lat": 59.85056459346225,
+            "lng": 29.923496246337894,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 41",
+            "clientId": 41
+        },
+        {
+            "lat": 59.85049989355855,
+            "lng": 29.900536537170414,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 42",
+            "clientId": 42
+        },
+        {
+            "lat": 59.99623534703218,
+            "lng": 29.76556777954102,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 43",
+            "clientId": 43
+        },
+        {
+            "lat": 59.99232718634908,
+            "lng": 29.78805541992188,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 44",
+            "clientId": 44
+        },
+        {
+            "lat": 59.98536865896181,
+            "lng": 29.78899955749512,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 45",
+            "clientId": 45
+        },
+        {
+            "lat": 60.04859964763606,
+            "lng": 29.977912902832035,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 46",
+            "clientId": 46
+        },
+        {
+            "lat": 60.078494856107945,
+            "lng": 29.972419738769535,
+            "cargo": 211,
+            "isDepot": false,
+            "clientName": "Клиент 47",
+            "clientId": 47
+        },
+        {
+            "lat": 60.08402042628781,
+            "lng": 29.950532913208008,
+            "cargo": 121,
+            "isDepot": false,
+            "clientName": "Клиент 48",
+            "clientId": 48
+        },
+        {
+            "lat": 60.11889366033007,
+            "lng": 30.163650512695316,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 49",
+            "clientId": 49
+        },
+        {
+            "lat": 60.10802347212629,
+            "lng": 30.488004684448246,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 50",
+            "clientId": 50
+        },
+        {
+            "lat": 60.09732195879673,
+            "lng": 30.449380874633793,
+            "cargo": 119,
+            "isDepot": false,
+            "clientName": "Клиент 51",
+            "clientId": 51
+        },
+        {
+            "lat": 60.10909343226652,
+            "lng": 30.428781509399418,
+            "cargo": 133,
+            "isDepot": false,
+            "clientName": "Клиент 52",
+            "clientId": 52
+        },
+        {
+            "lat": 60.119491634013116,
+            "lng": 30.45744895935059,
+            "cargo": 99,
+            "isDepot": false,
+            "clientName": "Клиент 53",
+            "clientId": 53
+        },
+        {
+            "lat": 60.17038323238223,
+            "lng": 30.54104804992676,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 54",
+            "clientId": 54
+        },
+        {
+            "lat": 60.55472228907924,
+            "lng": 30.251884460449222,
+            "cargo": 163,
+            "isDepot": false,
+            "clientName": "Клиент 55",
+            "clientId": 55
+        },
+        {
+            "lat": 60.58358605843771,
+            "lng": 30.255317687988285,
+            "cargo": 151,
+            "isDepot": false,
+            "clientName": "Клиент 56",
+            "clientId": 56
+        },
+        {
+            "lat": 60.57278626201231,
+            "lng": 30.15506744384766,
+            "cargo": 151,
+            "isDepot": false,
+            "clientName": "Клиент 57",
+            "clientId": 57
+        },
+        {
+            "lat": 61.04006515381465,
+            "lng": 30.120048522949222,
+            "cargo": 133,
+            "isDepot": false,
+            "clientName": "Клиент 58",
+            "clientId": 58
+        },
+        {
+            "lat": 61.11828457644057,
+            "lng": 29.871010780334476,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 59",
+            "clientId": 59
+        },
+        {
+            "lat": 61.12417414695026,
+            "lng": 29.882769584655765,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 60",
+            "clientId": 60
+        },
+        {
+            "lat": 60.44565831390468,
+            "lng": 29.082784652709964,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 61",
+            "clientId": 61
+        },
+        {
+            "lat": 60.43282081515732,
+            "lng": 29.06415939331055,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 62",
+            "clientId": 62
+        },
+        {
+            "lat": 60.530515509846,
+            "lng": 28.670110702514652,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 63",
+            "clientId": 63
+        },
+        {
+            "lat": 60.360908118523156,
+            "lng": 28.623161315917972,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 64",
+            "clientId": 64
+        },
+        {
+            "lat": 60.25061367040016,
+            "lng": 29.60746765136719,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 65",
+            "clientId": 65
+        },
+        {
+            "lat": 59.88425352761882,
+            "lng": 30.990028381347656,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 66",
+            "clientId": 66
+        },
+        {
+            "lat": 59.932306692608904,
+            "lng": 31.020927429199222,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 67",
+            "clientId": 67
+        },
+        {
+            "lat": 59.81477182226331,
+            "lng": 30.922737121582035,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 68",
+            "clientId": 68
+        },
+        {
+            "lat": 59.7950761030003,
+            "lng": 30.83072662353516,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 69",
+            "clientId": 69
+        },
+        {
+            "lat": 59.75668787989239,
+            "lng": 31.06796264648438,
+            "cargo": 451,
+            "isDepot": false,
+            "clientName": "Клиент 70",
+            "clientId": 70
+        },
+        {
+            "lat": 59.78003733009414,
+            "lng": 30.97457885742188,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 71",
+            "clientId": 71
+        },
+        {
+            "lat": 59.82755053613053,
+            "lng": 31.100578308105472,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 72",
+            "clientId": 72
+        },
+        {
+            "lat": 59.9064709427632,
+            "lng": 29.079780578613285,
+            "cargo": 275,
+            "isDepot": false,
+            "clientName": "Клиент 73",
+            "clientId": 73
+        },
+        {
+            "lat": 59.96839868275315,
+            "lng": 29.204063415527347,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 74",
+            "clientId": 74
+        },
+        {
+            "lat": 59.97510294833088,
+            "lng": 29.15428161621094,
+            "cargo": 250,
+            "isDepot": false,
+            "clientName": "Клиент 75",
+            "clientId": 75
+        },
+        {
+            "lat": 59.96220853991831,
+            "lng": 29.39529418945313,
+            "cargo": 199,
+            "isDepot": false,
+            "clientName": "Клиент 76",
+            "clientId": 76
+        },
+        {
+            "lat": 58.53512696723964,
+            "lng": 31.23001098632813,
+            "cargo": 189,
+            "isDepot": false,
+            "clientName": "Клиент 77",
+            "clientId": 77
+        },
+        {
+            "lat": 58.54516669843217,
+            "lng": 31.32064819335938,
+            "cargo": 143,
+            "isDepot": false,
+            "clientName": "Клиент 78",
+            "clientId": 78
+        },
+        {
+            "lat": 58.74110152574448,
+            "lng": 29.84024047851563,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 79",
+            "clientId": 79
+        },
+        {
+            "lat": 58.707930829550335,
+            "lng": 29.833030700683597,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 80",
+            "clientId": 80
+        },
+        {
+            "lat": 59.1213407957721,
+            "lng": 31.671009063720707,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 81",
+            "clientId": 81
+        },
+        {
+            "lat": 59.134208236204564,
+            "lng": 31.649379730224613,
+            "cargo": 218,
+            "isDepot": false,
+            "clientName": "Клиент 82",
+            "clientId": 82
+        },
+        {
+            "lat": 59.92431900647133,
+            "lng": 32.318859100341804,
+            "cargo": 398,
+            "isDepot": false,
+            "clientName": "Клиент 83",
+            "clientId": 83
+        },
+        {
+            "lat": 59.36888484876988,
+            "lng": 28.597412109375004,
+            "cargo": 388,
+            "isDepot": false,
+            "clientName": "Клиент 84",
+            "clientId": 84
+        },
+        {
+            "lat": 59.44720503527888,
+            "lng": 29.49417114257813,
+            "cargo": 345,
+            "isDepot": false,
+            "clientName": "Клиент 85",
+            "clientId": 85
+        },
+        {
+            "lat": 59.55238418226344,
+            "lng": 30.138931274414066,
+            "cargo": 290,
+            "isDepot": false,
+            "clientName": "Клиент 86",
+            "clientId": 86
+        },
+        {
+            "lat": 59.98539741950667,
+            "lng": 30.483970642089847,
+            "cargo": 330,
+            "isDepot": false,
+            "clientName": "Клиент 87",
+            "clientId": 87
+        },
+        {
+            "lat": 60.022311325869694,
+            "lng": 30.65271377563477,
+            "cargo": 322,
+            "isDepot": false,
+            "clientName": "Клиент 88",
+            "clientId": 88
+        },
+        {
+            "lat": 60.082525782902806,
+            "lng": 30.270295143127445,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 89",
+            "clientId": 89
+        },
+        {
+            "lat": 60.0691216216034,
+            "lng": 30.229396820068363,
+            "cargo": 395,
+            "isDepot": false,
+            "clientName": "Клиент 90",
+            "clientId": 90
+        },
+        {
+            "lat": 60.09390935647511,
+            "lng": 30.152149200439453,
+            "cargo": 444,
+            "isDepot": false,
+            "clientName": "Клиент 91",
+            "clientId": 91
+        },
+        {
+            "lat": 60.095151038852194,
+            "lng": 30.17682552337647,
+            "cargo": 219,
+            "isDepot": false,
+            "clientName": "Клиент 92",
+            "clientId": 92
+        },
+        {
+            "lat": 59.73528048561967,
+            "lng": 30.236778259277347,
+            "cargo": 390,
+            "isDepot": false,
+            "clientName": "Клиент 93",
+            "clientId": 93
+        },
+        {
+            "lat": 59.72709908107372,
+            "lng": 30.18253326416016,
+            "cargo": 291,
+            "isDepot": false,
+            "clientName": "Клиент 94",
+            "clientId": 94
+        },
+        {
+            "lat": 59.72943682948806,
+            "lng": 30.155925750732425,
+            "cargo": 333,
+            "isDepot": false,
+            "clientName": "Клиент 95",
+            "clientId": 95
+        },
+        {
+            "lat": 59.71878576317601,
+            "lng": 30.167856216430668,
+            "cargo": 200,
+            "isDepot": false,
+            "clientName": "Клиент 96",
+            "clientId": 96
+        },
+        {
+            "lat": 59.719088889182004,
+            "lng": 30.19497871398926,
+            "cargo": 100,
+            "isDepot": false,
+            "clientName": "Клиент 97",
+            "clientId": 97
+        },
+        {
+            "lat": 59.786095101465826,
+            "lng": 29.93637084960938,
+            "cargo": 650,
+            "isDepot": false,
+            "clientName": "Клиент 98",
+            "clientId": 98
+        },
+        {
+            "lat": 59.80622803400857,
+            "lng": 29.887962341308597,
+            "cargo": 230,
+            "isDepot": false,
+            "clientName": "Клиент 99",
+            "clientId": 99
+        }
+    ],
+    "trucks": [
+        {
+            "name": "Газель 1",
+            "capacity": 1500,
+            "fuelConsumption": 0.1,
+            "maxDistance": 500
+        },
+        {
+            "name": "Газель 2",
+            "capacity": 1500,
+            "fuelConsumption": 0.1,
+            "maxDistance": 500
+        },
+        {
+            "name": "Isuzu 1",
+            "capacity": 3000,
+            "fuelConsumption": 0.15,
+            "maxDistance": 600
+        },
+        {
+            "name": "Isuzu 2",
+            "capacity": 3000,
+            "fuelConsumption": 0.15,
+            "maxDistance": 600
+        },
+        {
+            "name": "КамАЗ",
+            "capacity": 10000,
+            "fuelConsumption": 0.3,
+            "maxDistance": 800
+        }
+    ],
+    "aco": {
+        "ants": 20,
+        "iters": 100,
+        "alpha": 1,
+        "beta": 9,
+        "rho": 0.1
+    }
+}

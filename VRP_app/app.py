@@ -167,6 +167,7 @@ def get_osrm_route(coordinates, route_indices):
 @app.route('/')
 def index():
     return render_template('index.html')
+
 @app.route('/solve_vrp', methods=['POST'])
 def solve_vrp():
     data = request.get_json()
@@ -202,7 +203,7 @@ def solve_vrp():
     if dist is None:
         return jsonify({'error': 'Не удалось загрузить матрицу расстояний'}), 500
     
-    np.random.seed(80)
+    #np.random.seed(80)
     start_time = time.time()
     best_routes, best_cost, end_iter = ant_colony(clients, trucks, gruz, dist, aco, local_opt)
     elapsed_time = time.time() - start_time
@@ -265,6 +266,107 @@ def solve_vrp():
     }
     
     return jsonify(response)
+
+@app.route('/solve_vrp_test', methods=['POST'])
+def solve_vrp_test():
+    data = None
+    with open('test.json', 'r') as f:  # Замените 'data.json' на путь к вашему файлу
+        data = json.load(f)
+    
+    nodes = data['nodes']
+    # Находим индекс депо (груз = 0)
+    depot_index = next(i for i, node in enumerate(nodes) if node['cargo'] == 0)
+    # Переставляем депо на первое место
+    nodes.insert(0, nodes.pop(depot_index))
+    
+    x = np.array([node['lng'] for node in nodes])
+    y = np.array([node['lat'] for node in nodes])
+    gruz = np.array([node['cargo'] for node in nodes])
+    coordinates = list(zip(y, x))
+    clients = len(nodes)
+    
+    trucks_data = data['trucks']
+    trucks = {
+        'm': len(trucks_data),
+        'v': [truck['capacity'] for truck in trucks_data],
+        'fuel': [truck['fuelConsumption'] for truck in trucks_data],
+        'max_dist': [truck['maxDistance'] for truck in trucks_data],
+        'to_home': [0] * len(trucks_data),
+        'visited': None,
+        'order': None
+    }
+    
+    aco = data['aco']
+    local_opt = True
+    truck_names = [truck['name'] for truck in trucks_data]
+    
+    dist = get_osrm_distance_matrix(coordinates)
+    if dist is None:
+        return jsonify({'error': 'Не удалось загрузить матрицу расстояний'}), 500
+    
+    #np.random.seed(80)
+    start_time = time.time()
+    best_routes, best_cost, end_iter = ant_colony(clients, trucks, gruz, dist, aco, local_opt)
+    elapsed_time = time.time() - start_time
+    print(f"маршрут: {best_routes}, время: {elapsed_time}")
+    
+    # Расчёт данных для графиков
+    truck_dist = np.zeros(trucks['m'])
+    truck_dist_no1 = np.zeros(trucks['m'])
+    truck_loads = np.zeros(trucks['m'])
+    truck_clients = np.zeros(trucks['m'])
+
+    for truck in range(trucks['m']):
+        ind = best_routes[truck]
+        # Проверяем, что маршрут не пустой
+        if len(ind) <= 2:  # Если маршрут [0, 0], считаем его пустым
+            truck_dist[truck] = 0
+            truck_dist_no1[truck] = 0
+            truck_loads[truck] = 0
+            truck_clients[truck] = 0
+            continue
+        truck_dist_no1[truck] = calc_route_cost(ind[:-1], dist, 1)
+        truck_dist[truck] = calc_route_cost(ind, dist, 1)
+        # Преобразуем ind в массив numpy и фильтруем
+        ind_array = np.array(ind)
+        ind_no_depot = ind_array[ind_array != 0]
+        truck_loads[truck] = np.sum(gruz[ind_no_depot]) if len(ind_no_depot) > 0 else 0
+        truck_clients[truck] = len(ind_no_depot)
+
+    truck_fuel = truck_dist * np.array(trucks['fuel'])
+    
+    # Генерация маршрутов для карты
+    routes_geo = []
+    colors = ['blue', 'green', 'red', 'purple', 'orange', 'cyan']
+    for truck_idx, route in enumerate(best_routes):
+        # Пропускаем маршрут, если он содержит только депо (длина маршрута <= 2)
+        if len(route) <= 2:
+            continue
+        route_coords = get_osrm_route(coordinates, route)
+        if route_coords:
+            # Формируем routeIndices для текущего маршрута
+            route_indices = [{'nodeIndex': node_idx, 'routeIndex': route_idx + 1} for route_idx, node_idx in enumerate(route)]
+            routes_geo.append({
+                'truck': truck_names[truck_idx],
+                'route': route_coords,
+                'color': colors[truck_idx % len(colors)],
+                'routeIndices': route_indices
+            })
+    
+    response = {
+        'routes': best_routes,
+        'best_cost': best_cost,
+        'total_cargo': float(sum(gruz)),
+        'truck_dist': truck_dist.tolist(),
+        'truck_dist_no1': truck_dist_no1.tolist(),
+        'truck_fuel': truck_fuel.tolist(),
+        'truck_loads': truck_loads.tolist(),
+        'truck_clients': truck_clients.tolist(),
+        'routes_geo': routes_geo,
+        'truck_names': truck_names
+    }
+    
+    return jsonify(response)   
 
 if __name__ == '__main__':
     app.run(debug=True)

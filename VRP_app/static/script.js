@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
 let map = L.map('map').setView([59.914, 30.43], 10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
+function getRandomInt(min, max) {  
+    min = Math.ceil(min); // округляем до ближайшего большего целого  
+    max = Math.floor(max); // округляем до ближайшего меньшего целого  
+    return Math.floor(Math.random() * (max - min + 1)) + min; // генерируем случайное целое число  
+} 
+
 // Пересчитываем размеры карты после инициализации
 setTimeout(() => map.invalidateSize(), 100);
 let nodes = [];
@@ -159,7 +165,7 @@ map.on('pm:create', async function (e) {
         const { value: cargo } = await Swal.fire({
             title: 'Введите груз (кг)',
             input: 'number',
-            inputValue: '100',
+            inputValue: getRandomInt(50, 399),
             showCancelButton: true,
             inputValidator: (value) => {
                 const num = parseFloat(value);
@@ -314,8 +320,6 @@ async function nextStep() {
 
 function createCharts(activeTruckNames, activeDist, activeDistNo1, activeClients, activeLoads) {
     // Фиксированные размеры для графиков (в пикселях)
-    const chartWidth = 400; // Фиксированная ширина
-    const chartHeight = 200; // Фиксированная высота
 
     // Установка размеров для каждого канваса
     const routesCanvas = document.getElementById('routes-plot');
@@ -407,6 +411,90 @@ function createCharts(activeTruckNames, activeDist, activeDistNo1, activeClients
     });
 }
 
+async function testVRP() {
+     try {
+        const response = await axios.post('/solve_vrp_test');
+        let dataResponse = response.data;
+        if (dataResponse.error) {
+            await Swal.fire({
+                icon: 'error',
+                title: 'Ошибка',
+                text: dataResponse.error,
+            });
+            return;
+        }
+
+        
+        currentDataResponse = dataResponse;
+        nodes.push({ lat: latlng.lat, lng: latlng.lng, cargo: 0, isDepot: true });
+
+        document.getElementById('total-cargo').textContent = `Суммарный перевозимый груз: ${dataResponse.total_cargo.toFixed(1)} кг`;
+        document.getElementById('best-cost').textContent = `Общая потребность топлива: ${dataResponse.best_cost.toFixed(1)} литров`;
+
+        let activeTruckNames = dataResponse.routes_geo.map(route => route.truck).filter(name => name);
+        let activeTruckIndices = dataResponse.routes_geo.map((route, index) => index);
+
+        let activeDist = activeTruckIndices.map(i => dataResponse.truck_dist[i] !== undefined ? dataResponse.truck_dist[i] : 0);
+        let activeDistNo1 = activeTruckIndices.map(i => dataResponse.truck_dist_no1[i] !== undefined ? dataResponse.truck_dist_no1[i] : 0);
+        let activeClients = activeTruckIndices.map(i => dataResponse.truck_clients[i] !== undefined ? dataResponse.truck_clients[i] : 0);
+        let activeLoads = activeTruckIndices.map(i => dataResponse.truck_loads[i] !== undefined ? dataResponse.truck_loads[i] : 0);
+
+        if (activeTruckNames.length === 0) {
+            console.warn('Нет активных грузовиков в routes_geo');
+            return;
+        }
+
+        // Вызываем функцию для создания графиков
+        createCharts(activeTruckNames, activeDist, activeDistNo1, activeClients, activeLoads);
+
+        routesLayer.clearLayers();
+        routePolylines = {};
+
+        dataResponse.routes_geo.forEach((route, index) => {
+            if (route.route && route.route.length > 0) {
+                let polyline = L.polyline(route.route, { color: route.color, weight: 5, opacity: 0.7 })
+                    .bindPopup(route.truck);
+                routePolylines[index] = polyline;
+                polyline.addTo(routesLayer);
+            }
+        });
+
+        let select = document.getElementById('route-select');
+        select.innerHTML = '<option value="-1">Все маршруты</option>';
+        dataResponse.routes_geo.forEach((route, index) => {
+            if (route.route && route.route.length > 0) {
+                let option = document.createElement('option');
+                option.value = index;
+                option.text = `${route.truck} (Цвет: ${route.color})`;
+                select.appendChild(option);
+            }
+        });
+
+        showRoute("-1", dataResponse);
+
+        let legendDiv = document.getElementById('legend');
+        legendDiv.innerHTML = '<h3 class="text-lg font-bold mb-2">Легенда</h3>';
+        dataResponse.routes_geo.forEach(route => {
+            if (route.route && route.route.length > 0) {
+                let item = document.createElement('div');
+                item.className = 'flex items-center mb-2';
+                item.innerHTML = `<div class="w-5 h-5 mr-2" style="background: ${route.color}"></div>${route.truck}`;
+                legendDiv.appendChild(item);
+            }
+        });
+
+        // Убеждаемся, что результаты видны после успешного расчёта
+        document.getElementById('result').classList.remove('hidden');
+    } catch (error) {
+        console.error('Ошибка:', error);
+        await Swal.fire({
+            icon: 'error',
+            title: 'Ошибка',
+            text: 'Ошибка при расчёте маршрутов: ' + error.message,
+        });
+    }
+}
+
 async function solveVRP() {
     let aco = {
         ants: parseInt(document.getElementById('ants').value),
@@ -417,6 +505,8 @@ async function solveVRP() {
     };
 
     let data = { nodes, trucks, aco };
+
+    console.log(data);
 
     try {
         const response = await axios.post('/solve_vrp', data);

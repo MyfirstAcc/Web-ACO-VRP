@@ -173,47 +173,60 @@ def two_opt_swap(route, i, j):
     return route[:i] + route[i:j+1][::-1] + route[j+1:]
 
 def ant_one(trucks, gruz, dist, pheromones, aco):
-    visited = trucks['visited'].copy()
-    routes = [None] * trucks['m']
-    total_cost = 0
-    test_cities = 0
-    
+    visited = trucks['visited'].copy()  # Список клиентов, уже посещённых каким-либо грузовиком
+    routes = [None] * trucks['m']       # Список маршрутов для каждого грузовика
+    total_cost = 0                      # Общая стоимость маршрутов
+    test_cities = 0                     # Количество обслуженных клиентов (без учёта гаража)
+
     for t_idx in range(trucks['m']):
-        truck = trucks['order'][t_idx]
-        curr_client = 0  # Start from garage (index 0 in Python)
-        curr_capacity = trucks['v'][truck]
-        route = [curr_client]
+        truck = trucks['order'][t_idx]          # Текущий грузовик по порядку
+        curr_client = 0                         # Начинаем с гаража (индекс 0)
+        curr_capacity = trucks['v'][truck]      # Оставшаяся грузоподъёмность
+        route = [curr_client]                   # Начальный маршрут: из гаража
         visited[curr_client] = True
-        current_dist = 0
-        
+        current_dist = 0                        # Пройденное расстояние для этого грузовика
+
+        # Пока есть место в грузовике и остались неотгруженные клиенты
         while curr_capacity > 0 and sum(gruz[route]) < sum(gruz):
-            next_client = select_next_client(curr_client, pheromones, dist, aco['alpha'], aco['beta'], gruz, curr_capacity, visited)
+            # Выбираем следующего клиента по вероятностной функции (с учётом феромонов и расстояний)
+            next_client = select_next_client(
+                curr_client, pheromones, dist,
+                aco['alpha'], aco['beta'],
+                gruz, curr_capacity, visited
+            )
+
             if next_client == -1:
-                break
-            
+                break  # Нет подходящих клиентов
+
             dist_to_next = dist[curr_client, next_client]
+
+            # Проверяем, сможет ли грузовик вернуться в гараж после посещения клиента
             if current_dist + dist_to_next + trucks['to_home'][truck] * dist[next_client, 0] > trucks['max_dist'][truck]:
-                break
-            
+                break  # Превышение лимита по пробегу
+
+            # Обновляем маршрут и параметры
             current_dist += dist_to_next
             route.append(next_client)
             curr_capacity -= gruz[next_client]
             curr_client = next_client
             visited[curr_client] = True
-        
-        test_cities += len(route) - 1
-        route.append(0)  # Return to garage
+
+        test_cities += len(route) - 1  # Учитываем количество клиентов (без гаража)
+        route.append(0)                # Возврат в гараж
         routes[truck] = route
+
+        # Считаем стоимость маршрута с учётом расхода топлива этого грузовика
         total_cost += calc_route_cost(route, dist, trucks['fuel'][truck])
-    
-    return routes, total_cost, test_cities
+
+    return routes, total_cost, test_cities  # Возвращаем маршруты, общую стоимость и число обслуженных клиентов
+
 
 def select_next_client(curr_client, pheromones, dist, alpha, beta, gruz, curr_capacity, visited, use_random=False):
     clients = dist.shape[0]
     prob = np.zeros(clients)
     
     if use_random:
-        # Random client selection
+        # Случайный выбор клиента
         available_clients = [j for j in range(clients) if j != curr_client and gruz[j] <= curr_capacity and not visited[j]]
         return random.choice(available_clients) if available_clients else -1
     
@@ -266,7 +279,7 @@ def ant_colony(clients, trucks, demand, dist, aco, local_opt):
     
     return best_routes, best_cost, end_iter
 
-# Добавляем метод ближайшего соседа
+# Метод ближайшего соседа
 def nearest_neighbor(clients, trucks, gruz, dist):
     visited = np.zeros(clients, dtype=bool)
     routes = [None] * trucks['m']
