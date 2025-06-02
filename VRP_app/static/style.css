@@ -94,3 +94,15 @@ body {
     width: 100%;
     max-width: 150px; /* Ограничиваем ширину полей ввода */
 }
+
+/* Стили для списка подсказок */
+#address-suggestions {
+    z-index: 1000;
+}
+#address-suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+#address-suggestions li:hover {
+    background-color: #f0f0f0;
+}

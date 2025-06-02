@@ -39,7 +39,7 @@
         </svg>
       </button>
 
-      <div class="sidepanel-content ">
+      <div class="sidepanel-content">
         <div>
           <h2 class="text-xl font-bold mb-4">Инструкция</h2>
           <p id="welcome-message" class="mb-4"></p>
@@ -52,6 +52,12 @@
           </div>
           <div id="step-2" class="hidden">
             <p class="mb-2">Добавьте клиентские точки на карте. Укажите имя клиента и груз (больше 0 кг).</p>
+            <div class="mb-4 relative">
+              <label for="address-input" class="mr-2">Введите адрес:</label>
+              <input type="text" id="address-input" class="p-2 border rounded w-1/2" placeholder="Например: Санкт-Петербург, Невский проспект, 1">
+              <button onclick="searchAddress()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2">Найти</button>
+              <ul id="address-suggestions" class="absolute bg-white border rounded shadow-lg w-1/2 mt-1 max-h-40 overflow-y-auto hidden"></ul>
+            </div>
             <table class="w-full border-collapse">
               <thead>
                 <tr class="bg-gray-200">
@@ -155,7 +161,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
   <script src="static/script.js"></script>
