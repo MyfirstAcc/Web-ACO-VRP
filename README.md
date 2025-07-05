@@ -10,6 +10,44 @@
 -	Настраивать параметры муравьиного алгоритма (число муравьев, итераций,_α, β, RHO_). 
 -	Визуализировать оптимальные маршруты и анализировать их характеристики (пробег, загрузка, топливный расход) с помощью графиков. 
 
+### Структура папок
+
+``` cmd 
+
+│   .gitignore
+│   README.md
+│   requirements.txt
+│
+├───VRP_app
+│   │   app.py ::web приложение с end point (backend)
+│   │   solution_VRP.py :: гибридный муравьиный алгоритм 
+│   │   test.json ::тестовые данные городов
+│   │
+│   ├───static
+│   │       script.js ::скрипт для работы 
+│   │       style.css ::стили для приложения
+│   │
+│   └───templates
+│           index.html 
+│           _index(with_priority).html ::попытка улучшения VRP с приоритетом
+│
+└───VRP_task_and_Comparison
+        D.csv :: матрица расстояний с octave
+        gruz.csv :: данные груза с octave
+        main_compresion_ACO_NN2.py :: попытка сравнение ACO с MILP (слишком долго)
+        main_from_SERP.py :: оригинальный код с Octave
+        main_from_SERP_ACO.py
+        main_from_SERP_NN.py :: попытка сравнение ACO с метод ближайших соседей
+        main_VRP_ACO_on_map.py :: создание статической карты(геокоординаты) по csv
+        main_VRP_with_priority_on_map(exper).py :: маршрут с приоритетом на карте
+        main_with_priority.py :: попытка улучшения VRP - маршруты с приоритетом 
+        VRP.py :: создание статической карты(геокоординаты) по test.json
+        x.csv :: координаты по x для клиентов с octave
+        y.csv :: координаты по y для клиентов с octave
+        test.json ::тестовые данные реальных точек (геооточки)
+
+```
+
 
 
 ### Архитектура приложения 
